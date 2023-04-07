@@ -1,0 +1,221 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --white: #fff;
+
+  --purpler-100: #F3F0FF; 
+  --purpler-200: #E9E3F8;
+  --purpler-300: #C1B2FA;
+  --purpler-500: #7A5FEC;
+  --purpler-700: #746E82;
+
+  --gray-300: #575361;
+
+  --green-200: #DAF2D9;
+  --green-400: #73B172;
+
+  --red-200: #F2D9D9;
+  --red-400: #E36363;
+
+  --gradient-loading: linear-gradient(90deg, rgba(58, 97, 237, 0.52) 0%, #7C3AED 100%);
+}
+
+html {
+  font-size: 62.5%; /* 10px */
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: 'Inter', sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  min-width: 44rem;
+}
+
+.container:has(.upload-box:hover) ul {
+  opacity: 0.5;
+}
+
+.upload-box {
+  border: 1px dashed var(--purpler-300);
+  border-radius: 8px;
+  background-color: var(--purpler-100);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 2.4rem 0;
+
+  transition: all 0.2s;
+}
+
+.upload-box:hover {
+  scale: 1.1;
+}
+
+.upload-box img {
+  margin-bottom: 1.2rem;
+  width: 4.8rem;
+  height: 4.8rem;
+}
+
+.upload-box p {
+  font-weight: 700;
+  color: var(--purpler-500);
+}
+
+.upload-box input {
+  display: none;
+}
+
+.upload-box span {
+  font-size: 1.4rem;
+  color: var(--purpler-700);
+}
+
+.files {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+} 
+
+.files li {
+  padding: 0.8rem;
+  display: flex;
+  box-shadow: 0px 4px 16px #EAE2FD;
+  border-radius: 8px;
+  gap: 1.2rem;
+}
+
+.files li > div:first-child {
+  width: 4.8rem;
+  height: 5.6rem;
+  border-radius: 6px;
+  background-color: var(--purpler-200);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.files li > div:first-child.complete {
+  background-color: var(--green-200);
+}
+
+.files li > div:first-child.error {
+  background-color: var(--red-200);
+}
+
+.files li > div:first-child i {
+  color: var(--purpler-500);
+  font-size: 2.4rem;
+}
+
+.files li > div:first-child i.complete {
+  color: var(--green-400);
+}
+
+.files li > div:first-child i.error {
+  color: var(--red-400);
+}
+
+li .file-info {
+  width: 100%;
+  display: flex;
+  gap: 0.8rem;
+}
+
+li .file-info div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  line-height: 1;
+}
+
+li .file-info div strong {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--gray-300);
+}
+
+li .file-info div p {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 130%;
+  color: var(--purpler-700)
+}
+
+li .file-info div:first-child span::before {
+  content: '';
+  background-color: var(--purpler-200);
+  border-radius: 6px;
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 0.8rem;
+}
+
+li .file-info div:first-child span::after {
+  content: '';
+  background: var(--gradient-loading);
+  border-radius: 6px;
+  position: relative;
+  display: block;
+  width: 48%;
+  height: 0.8rem;
+}
+
+li .file-info div:first-child span.complete::after {
+  background: var(--green-400);
+  width: 100%;
+}
+
+li .file-info div:first-child span.error::after {
+  visibility: hidden;
+}
+
+li .file-info div:nth-child(1) {
+  flex: 1;
+}
+
+li .file-info div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+li .file-info div:nth-child(2) i {
+  color: var(--purpler-500);
+  font-size: 1.8rem;
+}
+
+li .file-info div:nth-child(2) i.complete {
+  visibility: hidden;
+}
+
+li .file-info div:nth-child(2) span {
+  color: var(--purpler-700);
+  font-size: 1.2rem;
+  font-weight: 500;
+} 
+
+li .file-info div:nth-child(2) span.complete {
+  color: var(--green-400)
+}
+
+li .file-info div:nth-child(2) span.error {
+  color: var(--red-400)
+}
